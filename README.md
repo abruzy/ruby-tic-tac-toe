@@ -1,1 +1,0 @@
-# ruby-tic-tac-toe
