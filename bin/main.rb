@@ -1,2 +1,2 @@
-#!/bin/bash
-echo "Hello world!"
+#!/usr/bin/env ruby
+puts "Hello world!" 
