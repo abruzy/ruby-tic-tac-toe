@@ -19,10 +19,10 @@ arr = []
 while (position1 < 1 || position1 > 9) && !arr.include?(position1)
   puts "#{Player1}, What position would you like to make your move?, PLease pick a number between 0 and 10"
   position1 = gets.chomp.to_i
- if arr.include? position1
-  puts "That position is occupied,pls re-pick?"
-  position1 = gets.chomp.to_i
- end
+  until !arr.include? position1
+    puts "That position is occupied,pls re-pick?"
+    position1 = gets.chomp.to_i
+   end
  end
 
 arr << position1
@@ -32,6 +32,10 @@ position2 = 10
 while (position2 < 1 || position2 > 9) && !arr.include?(position2)
   puts "#{Player2}, What position would you like to make your move?, PLease pick a number between 0 and 10"
   position2 = gets.chomp.to_i
-  puts 'That position is occupied,pls re-pick' if arr.include? position2
+  until !arr.include? position2
+    puts "That position is occupied,pls re-pick?"
+    position2 = gets.chomp.to_i
+   end
     end
-    arr << position1
+    arr << position2
+    print arr
