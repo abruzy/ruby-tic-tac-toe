@@ -11,8 +11,18 @@ puts "The first player chose '#{tool1}',so you are stuck with '#{tool2}' for thi
 puts ''
 puts "Now that's out of the way,let the game begin"
 puts ''
-position=10
-while position<1 || position>9
+position1=10
+arr=[]
+while (position1<1 || position1>9) && arr!include(position1)
 puts "#{Player1}, What position would you like to make your move?, PLease pick a number between 0 and 10"
 position1 = gets.chomp
+puts arr.include? position1 'That position is occupied,pls re-pick' : nil
 end
+arr << position
+puts "Now your move with '#{tool1}' is displayed on the board"
+puts ''
+position2=10
+while (position2<1 || position2>9) && arr!include(position2)
+    puts "#{Player2}, What position would you like to make your move?, PLease pick a number between 0 and 10"
+    position2 = gets.chomp
+    end
