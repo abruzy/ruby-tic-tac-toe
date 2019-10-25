@@ -38,4 +38,8 @@ while (position2 < 1 || position2 > 9) && !arr.include?(position2)
    end
     end
     arr << position2
-    print arr
+    puts "Now your move with '#{tool2}' is displayed on the board"
+puts ''
+puts 'After several turns and winner emerges based on having the same letter appear horizontally,vertically,or diagonally,
+,winner is announced and if there is no winner,it is stated'
+
