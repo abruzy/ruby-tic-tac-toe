@@ -14,7 +14,7 @@ tool2 = tool1 == 'X' ? 'O' : 'X'
 puts 'Second player,please state your name'
 Player2 = gets.chomp.capitalize
 until Player2!=Player1
-  puts "Please,pick either 'X' or 'O'?"
+  puts "That name has been taken,please pick another name"
   Player2=gets.chomp.capitalize
 end
 puts ""
