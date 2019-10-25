@@ -6,6 +6,9 @@ puts 'Please state your name'
 Player1 = gets.chomp.capitalize
 puts "#{Player1},PLease pick your preferred letter,X or O"
 tool1 = gets.chomp.upcase
+until tool1=="X" || tool1=="O"
+  puts "Please,pick either 'X' or 'O"
+end
 tool2 = tool1 == 'X' ? 'O' : 'X'
 puts 'Second player,please state your name'
 Player2 = gets.chomp.capitalize
