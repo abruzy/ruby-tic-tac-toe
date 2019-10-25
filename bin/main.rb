@@ -7,11 +7,16 @@ Player1 = gets.chomp.capitalize
 puts "#{Player1},PLease pick your preferred letter,X or O"
 tool1 = gets.chomp.upcase
 until tool1=="X" || tool1=="O"
-  puts "Please,pick either 'X' or 'O"
+  puts "Please,pick either 'X' or 'O'?"
+  tool1=gets.chomp.upcase
 end
 tool2 = tool1 == 'X' ? 'O' : 'X'
 puts 'Second player,please state your name'
 Player2 = gets.chomp.capitalize
+until Player2!=Player1
+  puts "Please,pick either 'X' or 'O'?"
+  Player2=gets.chomp.capitalize
+end
 puts ""
 puts "#{Player2},The first player chose '#{tool1}',so you are stuck with '#{tool2}' for this round"
 puts ''
