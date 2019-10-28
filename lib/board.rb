@@ -1,16 +1,4 @@
-board = [0,' ', ' ', ' ', ' ', ' ', ' ',' ', ' ', ' ']
-
-def dispplay_board(board)
-  puts " #{board[0]} | #{board[1]} | #{board[2]} "
-  puts "-------------"
-  puts " #{board[3]} | #{board[4]} | #{board[5]} "
-  puts "-------------"
-  puts " #{board[6]} | #{board[7]} | #{board[8]} "
-end
-
-def input(user_input)
-  user_input.to_i - 1
-end
+# frozen_string_literal: true
 
 class Player
   attr_accessor :name
@@ -19,5 +7,23 @@ class Player
   def initialize(name, tool)
     @name = name
     @tool = tool
+  end
+end
+
+class Game
+  @@board = [' _', ' _', ' _', ' _', ' _', ' _', ' _', ' _', ' _']
+  def self.display
+    line_width = 50
+    puts " #{@@board[0]} | #{@@board[1]} | #{@@board[2]} " .center line_width
+    puts '-------------' .center line_width
+    puts " #{@@board[3]} | #{@@board[4]} | #{@@board[5]} ".center line_width
+    puts '-------------' .center line_width
+    puts " #{@@board[6]} | #{@@board[7]} | #{@@board[8]} ".center line_width
+  end
+
+  def self.play(position, tool)
+    @position = position
+    @tool = tool
+    @@board[@position] = @tool
   end
 end

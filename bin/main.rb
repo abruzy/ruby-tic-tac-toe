@@ -22,3 +22,4 @@ end
 tool2 = tool=='X'? "O" : "X"
 
 player2 = Player.new(name2, tool2)
+Game.display
