@@ -11,19 +11,19 @@ class Player
 end
 
 class Game
-  @@board = [' _', ' _', ' _', ' _', ' _', ' _', ' _', ' _', ' _']
+  @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   def self.display
     line_width = 50
-    puts " #{@@board[0]} | #{@@board[1]} | #{@@board[2]} " .center line_width
+    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} " .center line_width
     puts '-------------' .center line_width
-    puts " #{@@board[3]} | #{@@board[4]} | #{@@board[5]} ".center line_width
+    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} ".center line_width
     puts '-------------' .center line_width
-    puts " #{@@board[6]} | #{@@board[7]} | #{@@board[8]} ".center line_width
+    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} ".center line_width
   end
 
   def self.play(position, tool)
     @position = position
     @tool = tool
-    @@board[@position] = @tool
+    @board[@position - 1] = @tool
   end
 end

@@ -22,4 +22,15 @@ end
 tool2 = tool=='X'? "O" : "X"
 
 player2 = Player.new(name2, tool2)
+i=0
+while i<9
+    i+=1
+puts "#{player1.name}, please pick a position for your move"
+move1=gets.chomp.to_i
+Game.play(move1,tool)
 Game.display
+puts "#{player2.name}, please pick a position for your move"
+move2=gets.chomp.to_i
+Game.play(move2,tool2)
+Game.display
+end
