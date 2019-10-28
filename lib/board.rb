@@ -12,7 +12,7 @@ end
 
 class Game
   @board = [' 1', ' 2', ' 3', ' ', ' ', ' ', ' ', ' ', ' ']
-  
+
   def self.display
     line_width = 50
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]} " .center line_width
@@ -28,4 +28,3 @@ class Game
     @board[@position - 1] = @tool
   end
 end
-
