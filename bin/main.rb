@@ -3,8 +3,12 @@ require_relative '../lib/board.rb'
 puts "Enter your name"
 name = gets.chomp.capitalize
 
-puts "What tools would you like to choose"
+puts "What tools would you like to choose, 'X' or 'O'?"
 tool = gets.chomp.upcase
+until tool=='X' || tool=='O'
+    puts "Please pick either 'X' or 'O'"
+    tool = gets.chomp.upcase
+end
 
 player1 = Player.new(name, tool)
 
