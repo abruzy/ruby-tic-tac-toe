@@ -23,6 +23,7 @@ puts ''
 puts "Now that's out of the way,let the game begin"
 puts ''
 arr=[]
+position1 = 10
 game_on=true
 while game_on
     puts "#{Player1}, What position would you like to make your move?, PLease pick a number between 0 and 10"
