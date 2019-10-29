@@ -44,4 +44,5 @@ class Result
       return arr[i] if arr[i] == arr[i + 3] && arr[i] == arr[i + 6]
     end
   end
+
 end
