@@ -41,18 +41,26 @@ tool2 = tool=='X'? "O" : "X"
 
 player2 = Player.new(name2, tool2)
 player_turn=Game.new
+arr=[]
 i=0
 while i<9
     i+=1
 puts "#{player1.name}, please pick a position for your move"
 move1=gets.chomp.to_i
+until move1 < 10 && move1 > 0
+  pu ts 'Please pick a number between 0 and 10?'
+  move1 = gets.chomp.to_i
+end
 player_turn.play(move1,tool)
 Umpire.display(player_turn.board)
 if Umpire.check(player_turn.board)=='X' || Umpire.check(player_turn.board)=="O" 
   puts "#{player1.name} is the winner of this round"
   break
 end
-break if i==9
+ if i==9
+  puts "Game over and there is no winner"
+  break
+ end
 puts "#{player2.name}, please pick a position for your move"
 move2=gets.chomp.to_i
 player_turn.play(move2,tool2)
