@@ -10,8 +10,6 @@ class Player
   end
 end
 
-
-end
 class Game
   attr_reader :board
   def initialize
@@ -45,6 +43,5 @@ class Result
     (1..3).each do |i|
       return arr[i] if arr[i] == arr[i + 3] && arr[i] == arr[i + 6]
     end
-
   end
 end
