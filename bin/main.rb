@@ -44,30 +44,49 @@ player_turn=Game.new
 arr=[]
 i=0
 while i<9
-    i+=1
-puts "#{player1.name}, please pick a position for your move"
-move1=gets.chomp.to_i
-until move1 < 10 && move1 > 0
-  pu ts 'Please pick a number between 0 and 10?'
-  move1 = gets.chomp.to_i
-end
-player_turn.play(move1,tool)
-Umpire.display(player_turn.board)
-if Umpire.check(player_turn.board)=='X' || Umpire.check(player_turn.board)=="O" 
-  puts "#{player1.name} is the winner of this round"
-  break
-end
- if i==9
-  puts "Game over and there is no winner"
-  break
- end
-puts "#{player2.name}, please pick a position for your move"
-move2=gets.chomp.to_i
-player_turn.play(move2,tool2)
-Umpire.display(player_turn.board)
-if Umpire.check(player_turn.board)=='X' || Umpire.check(player_turn.board)=="O" 
-  puts "#{player2.name} is the winner of this round"
-  break
-end
+    
+    puts "#{player1.name}, please pick a position for your move"
+    move1=gets.chomp.to_i
+  until move1 < 10 && move1 > 0 && !arr.include?(move1)
+    puts 'Please pick a number between 0 and 10 that has not been picked before?'
+    move1 = gets.chomp.to_i
+    until !arr.include?(move1)
+      puts "Please pick a number that has not been picked"
+      move1 = gets.chomp.to_i
+    end
+  end
+  arr << move1
+  
 
+  player_turn.play(move1,tool)
+  Umpire.display(player_turn.board)
+    if Umpire.check(player_turn.board)=='X' || Umpire.check(player_turn.board)=="O" 
+        puts "#{player1.name} is the winner of this round"
+      break
+    end
+    if i==9
+        puts "Game over and there is no winner"
+     break
+    end
+
+  puts "#{player2.name}, please pick a position for your move"
+  move2=gets.chomp.to_i
+    until move2 < 10 && move2 > 0 && !arr.include?(move2)
+      puts 'Please pick a number between 0 and 10 that has not been picked before?'
+      move2 = gets.chomp.to_i
+      until !arr.include?(move2)
+        puts "Please pick a number that has not been picked"
+        move2 = gets.chomp.to_i
+      end
+    end
+
+    arr << move2
+
+  player_turn.play(move2,tool2)
+  Umpire.display(player_turn.board)
+    if Umpire.check(player_turn.board)=='X' || Umpire.check(player_turn.board)=="O" 
+       puts "#{player2.name} is the winner of this round"
+     break
+    end
+    i+=1
 end
