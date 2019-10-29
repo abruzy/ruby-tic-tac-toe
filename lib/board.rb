@@ -47,3 +47,4 @@ class Result
     end
 
   end
+end
