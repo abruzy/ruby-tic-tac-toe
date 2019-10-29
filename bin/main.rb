@@ -7,18 +7,8 @@ module Umpire
      puts "#{arr[4]} | #{arr[5]} | #{arr[6]} ".center line_width
      puts "#{arr[7]} | #{arr[8]} | #{arr[9]} ".center line_width
     end
-
-    def self.check(arr)
-        return arr[1] if arr[1]==arr[2] && arr[1] ==arr[3]
-        return arr[4] if arr[4]==arr[5] && arr[4] ==arr[6]
-        return arr[7] if arr[7]==arr[8] && arr[7] ==arr[9]
-        return arr[1] if arr[1]==arr[5] && arr[1] ==arr[9]
-        return arr[3] if arr[3]==arr[5] && arr[7] ==arr[3]
-        return arr[1] if arr[1]==arr[4] && arr[1] ==arr[7]
-        return arr[2] if arr[2]==arr[5] && arr[2] ==arr[8]
-        return arr[3] if arr[3]==arr[6] && arr[3] ==arr[9]
-    end
 end
+
 puts "Enter your name"
 name = gets.chomp.capitalize
 
@@ -51,19 +41,26 @@ while i<9
   until move1 < 10 && move1 > 0 && !arr.include?(move1)
     puts 'Please pick a number between 0 and 10 that has not been picked before?'
     move1 = gets.chomp.to_i
-    until !arr.include?(move1)
-      puts "Please pick a number that has not been picked"
-      move1 = gets.chomp.to_i
-    end
   end
   arr << move1
   
   player_turn.play(move1,tool)
   Umpire.display(player_turn.board)
-    if Umpire.check(player_turn.board)=='X' || Umpire.check(player_turn.board)=="O" 
+    if Result.check1(player_turn.board)==player1.tool
         puts "#{player1.name} is the winner of this round"
+        puts "#{player1.name}'s tool '#{player1.tool}' is aligned horizontally"
       break
     end
+    if Result.check2(player_turn.board)==player1.tool
+      puts "#{player1.name} is the winner of this round"
+      puts "#{player1.name}'s tool '#{player1.tool}' is aligned diagonally"
+    break
+    end
+  if Result.check3(player_turn.board)==player1.tool
+    puts "#{player1.name} is the winner of this round"
+    puts "#{player1.name}'s tool '#{player1.tool}' is aligned vertically"
+  break
+  end
     if i==9
       puts "Game over and there is no winner"
       break
@@ -76,19 +73,27 @@ while i<9
     until move2 < 10 && move2 > 0 && !arr.include?(move2)
       puts 'Please pick a number between 0 and 10 that has not been picked before?'
       move2 = gets.chomp.to_i
-      until !arr.include?(move2)
-        puts "Please pick a number that has not been picked"
-        move2 = gets.chomp.to_i
-      end
+     
     end
 
     arr << move2
 
   player_turn.play(move2,tool2)
   Umpire.display(player_turn.board)
-    if Umpire.check(player_turn.board)=='X' || Umpire.check(player_turn.board)=="O" 
+    if Result.check1(player_turn.board)==player2.tool
        puts "#{player2.name} is the winner of this round"
+       puts "#{player2.name}'s tool '#{player2.tool}' is aligned horizontally"
      break
     end
+    if Result.check2(player_turn.board)==player2.tool
+      puts "#{player2.name} is the winner of this round"
+      puts "#{player2.name}'s tool '#{player2.tool}' is aligned diagonally"
+    break
+    end
+  if Result.check3(player_turn.board)==player2.tool
+    puts "#{player2.name} is the winner of this round"
+    puts "#{player2.name}'s tool '#{player2.tool}' is aligned vertically"
+  break
+  end
     
 end
