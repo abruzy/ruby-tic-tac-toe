@@ -15,7 +15,8 @@ module Umpire
         return arr[1] if arr[1]==arr[5] && arr[1] ==arr[9]
         return arr[3] if arr[3]==arr[5] && arr[7] ==arr[3]
         return arr[1] if arr[1]==arr[4] && arr[1] ==arr[7]
-    
+        return arr[2] if arr[2]==arr[5] && arr[2] ==arr[8]
+        return arr[3] if arr[3]==arr[6] && arr[3] ==arr[9]
     end
 end
 puts "Enter your name"
@@ -44,7 +45,7 @@ player_turn=Game.new
 arr=[]
 i=0
 while i<9
-    
+    i+=1
     puts "#{player1.name}, please pick a position for your move"
     move1=gets.chomp.to_i
   until move1 < 10 && move1 > 0 && !arr.include?(move1)
@@ -57,7 +58,6 @@ while i<9
   end
   arr << move1
   
-
   player_turn.play(move1,tool)
   Umpire.display(player_turn.board)
     if Umpire.check(player_turn.board)=='X' || Umpire.check(player_turn.board)=="O" 
@@ -65,9 +65,11 @@ while i<9
       break
     end
     if i==9
-        puts "Game over and there is no winner"
-     break
+      puts "Game over and there is no winner"
+      break
     end
+    i+=1
+   
 
   puts "#{player2.name}, please pick a position for your move"
   move2=gets.chomp.to_i
@@ -88,5 +90,5 @@ while i<9
        puts "#{player2.name} is the winner of this round"
      break
     end
-    i+=1
+    
 end
