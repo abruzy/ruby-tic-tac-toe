@@ -11,12 +11,10 @@ class Player
 end
 
 class Game
-  attr_accessor :board
-  def initialize 
-    @board = [0,' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  attr_reader :board
+  def initialize
+    @board = [0, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   end
-
-  
 
   def play(position, tool)
     @position = position
