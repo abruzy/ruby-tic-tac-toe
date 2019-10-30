@@ -52,10 +52,7 @@ The board is divided into a grid of 9 cells
 1. Each player enters their name.
 2. Players choose their tool, either X or O.
 3. Each player chooses an empty cell using the corresponding numbers 1 to 9 as shown below to place their tool
-*                          1 | 2 | 3
-*                          4 | 5 | 6
-*                          7 | 8 | 9 
-
+  ![Board](http://files.kidspot.co.nz/ACTIVITIES_JO/Sujatha/FORWARDPROJECTS/TicTacToeBoard.jpg)
 4. The first player to mark an entire row, column or diagonal using his tool wins.
 5. If the grid is full and there is no winner, the game ends with a draw!
 6. If there is a winner,the winner is announced and the reason for winning is stated.
