@@ -45,10 +45,9 @@ cd ruby-tic-tac-toe
 > Library files location
 
 ```sh
-./lib/board.rb
+./lib/result.rb
 ./lib/game.rb
 ./lib/player.rb
-./lib/ui.rb
 ```
 
 ## How to Play
