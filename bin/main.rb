@@ -1,12 +1,9 @@
-<<<<<<< HEAD
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 require_relative '../lib/result.rb'
-=======
-#!/usr/bin/env ruby
-# frozen_string_literal: true
-require_relative '../lib/board.rb'
->>>>>>> 252b6236c72b7be88495bdf2d67c34fd710c49ea
 
 module Umpire
     def self.display(arr)
