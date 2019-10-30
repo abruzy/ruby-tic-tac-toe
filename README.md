@@ -55,7 +55,7 @@ cd ruby-tic-tac-toe
 Board is divided into a grid of 9 cells
 
 1. Each player enters their name.
-2. Plyaers choose their tool either X or O.
+2. Players choose their tool either X or O.
 3. Each player chooses an empty cell to mark in their turn.
 4. The first player to mark a row, column or diagonal wins.
 5. If the grid is full with no winning conditions the game ends with a draw!
