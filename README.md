@@ -27,20 +27,15 @@ Tic Tac Toe (X O) terminal game implementation using Ruby.
 
 **[Ruby 2.5.0+](https://www.ruby-lang.org/en/downloads/)**
 
-### Install
-
-```console
+### Type the following in your terminal
+```
 git clone https://github.com/abruzy/ruby-tic-tac-toe.git
 cd ruby-tic-tac-toe
+./bin/main.rb
 ```
 
 ## Dependencies
 
-> Execution file location
-
-```sh
-./bin/main.rb
-```
 
 > Library files location
 
@@ -52,10 +47,10 @@ cd ruby-tic-tac-toe
 
 ## How to Play
 
-Board is divided into a grid of 9 cells
+The board is divided into a grid of 9 cells
 
 1. Each player enters their name.
-2. Players choose their tool either X or O.
+2. Players choose their tool, either X or O.
 3. Each player chooses an empty cell using the corresponding numbers 1 to 9 as shown below to place their tool
                             1 | 2 | 3
                             4 | 5 | 6
