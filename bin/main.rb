@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 require_relative '../lib/result.rb'
+=======
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+require_relative '../lib/board.rb'
+>>>>>>> 252b6236c72b7be88495bdf2d67c34fd710c49ea
 
 module Umpire
     def self.display(arr)
@@ -20,6 +26,7 @@ until tool=='X' || tool=='O'
     puts "Please pick either 'X' or 'O'"
     tool = gets.chomp.upcase
 end
+
 
 player1 = Player.new(name, tool)
 
@@ -97,5 +104,6 @@ while i<9
     puts "#{player2.name}'s tool '#{player2.tool}' is aligned vertically"
   break
   end
-    
+  
 end
+
