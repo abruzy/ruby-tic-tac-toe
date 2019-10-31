@@ -14,106 +14,93 @@ module Umpire
     end
 end
 
-$arr=[]
-$arr1=[]
-player_turn=Game.new
-
-def name1
 puts "Enter your name"
-name1 = gets.chomp.capitalize
-$arr << name1
-return name1
-end
+name = gets.chomp.capitalize
 
-def tool1
 puts "What tools would you like to choose, 'X' or 'O'?"
-tool1 = gets.chomp.upcase
-until tool1=='X' || tool1=='O'
+tool = gets.chomp.upcase
+until tool=='X' || tool=='O'
     puts "Please pick either 'X' or 'O'"
-    tool1 = gets.chomp.upcase
-end
-$arr << tool1
-return tool1
+    tool = gets.chomp.upcase
 end
 
-def create_player(player1,name1,tool1)
-player1= Player.new(name1,tool1)
-return player1
-end
 
-def name2
+player1 = Player.new(name, tool)
+
 puts "Next player, please enter your name"
 name2 = gets.chomp.capitalize
-until !$arr.include? (name2)
+until name2!=name
     puts "Please pick another name,that name is taken"
     name2 = gets.chomp.upcase
 end
-return name2
-end
 
-def tool2
-tool2 = $arr.include?('X')? "O" : "X"
-$arr << tool2
-return tool2
-end
+tool2 = tool=='X'? "O" : "X"
 
-def action(player1)
-  puts "#{player1.name}, please pick a position for your move"
+player2 = Player.new(name2, tool2)
+player_turn=Game.new
+arr=[]
+i=0
+while i<9
+    i+=1
+    puts "#{player1.name}, please pick a position for your move"
     move1=gets.chomp.to_i
-  until move1 < 10 && move1 > 0 && !$arr1.include?(move1)
+  until move1 < 10 && move1 > 0 && !arr.include?(move1)
     puts 'Please pick a number between 0 and 10 that has not been picked before?'
     move1 = gets.chomp.to_i
   end
-  $arr1 << move1
-  return move1
-end
-
-def check(board,player1)
-  if Result.check1(board)==player1.tool
-    puts "#{player1.name} is the winner of this round"
-    puts "#{player1.name}'s tool '#{player1.tool}' is aligned horizontally"
-    return true
-  end
-if Result.check2(board)==player1.tool
-  puts "#{player1.name} is the winner of this round"
-  puts "#{player1.name}'s tool '#{player1.tool}' is aligned diagonally"
-  return true
-end
-if Result.check3(board)==player1.tool
-puts "#{player1.name} is the winner of this round"
-puts "#{player1.name}'s tool '#{player1.tool}' is aligned vertically"
-return true
-end
-return false
-end
-
-player1=create_player('player1',name1,tool1)
-player2=create_player('player2',name2,tool2)
-
-
-i=0
-
-while i<9
+  arr << move1
   
-  i+=1
-  move1=action(player1)
-  player_turn.play(move1,$arr[1])
+  player_turn.play(move1,tool)
   Umpire.display(player_turn.board)
-  break if check(player_turn.board,player1)
-   
-  
+    if Result.check1(player_turn.board)==player1.tool
+        puts "#{player1.name} is the winner of this round"
+        puts "#{player1.name}'s tool '#{player1.tool}' is aligned horizontally"
+      break
+    end
+    if Result.check2(player_turn.board)==player1.tool
+      puts "#{player1.name} is the winner of this round"
+      puts "#{player1.name}'s tool '#{player1.tool}' is aligned diagonally"
+    break
+    end
+  if Result.check3(player_turn.board)==player1.tool
+    puts "#{player1.name} is the winner of this round"
+    puts "#{player1.name}'s tool '#{player1.tool}' is aligned vertically"
+  break
+  end
     if i==9
       puts "Game over and there is no winner"
       break
     end
-
-    
     i+=1
-    move2=action(player2)
+   
 
-  player_turn.play(move2,$arr[2])
+  puts "#{player2.name}, please pick a position for your move"
+  move2=gets.chomp.to_i
+    until move2 < 10 && move2 > 0 && !arr.include?(move2)
+      puts 'Please pick a number between 0 and 10 that has not been picked before?'
+      move2 = gets.chomp.to_i
+     
+    end
+
+    arr << move2
+
+  player_turn.play(move2,tool2)
   Umpire.display(player_turn.board)
-  break if check(player_turn.board,player2)
+    if Result.check1(player_turn.board)==player2.tool
+       puts "#{player2.name} is the winner of this round"
+       puts "#{player2.name}'s tool '#{player2.tool}' is aligned horizontally"
+     break
+    end
+    if Result.check2(player_turn.board)==player2.tool
+      puts "#{player2.name} is the winner of this round"
+      puts "#{player2.name}'s tool '#{player2.tool}' is aligned diagonally"
+    break
+    end
+  if Result.check3(player_turn.board)==player2.tool
+    puts "#{player2.name} is the winner of this round"
+    puts "#{player2.name}'s tool '#{player2.tool}' is aligned vertically"
+  break
+  end
+  
 end
-
 
