@@ -9,6 +9,3 @@ class Player
     @tool = tool
   end
 end
-
-class Game
-end
