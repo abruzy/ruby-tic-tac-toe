@@ -45,7 +45,7 @@ cd ruby-tic-tac-toe
 ./lib/player.rb
 ```
 
-## How to Play
+## How to Play the game
 
 The board is divided into a grid of 9 cells
 
