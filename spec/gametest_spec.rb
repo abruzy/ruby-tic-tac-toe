@@ -79,3 +79,10 @@ describe 'GameOver' do
     end
   end
 end
+
+describe "Game's valid move" do
+  context 'when a player picks the position to place his tool(his move)' do
+    it 'returns true if the position is valid (within the acceptable range and not been picked previously)' do
+    end
+  end
+end

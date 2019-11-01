@@ -60,11 +60,11 @@ end
 def action(player1)
   puts "#{player1.name}, please pick a position for your move"
     move1=gets.chomp.to_i
-  until move1 < 10 && move1 > 0 && !$arr1.include?(move1)
+  until player_turn.valid_move(move1,$arr)
     puts 'Please pick a number between 0 and 10 that has not been picked before?'
     move1 = gets.chomp.to_i
   end
-  $arr1 << move1
+  $arr << move1
   return move1
 end
 
