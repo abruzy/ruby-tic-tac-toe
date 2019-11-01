@@ -18,6 +18,7 @@ $arr=[]
 $arr1=[]
 player_turn=Game.new
 
+
 def name1
 puts "Enter your name"
 name1 = gets.chomp.capitalize
@@ -58,9 +59,10 @@ return tool2
 end
 
 def action(player1)
+  game_on=Game.new
   puts "#{player1.name}, please pick a position for your move"
     move1=gets.chomp.to_i
-  until player_turn.valid_move(move1,$arr)
+  until game_on.valid_move(move1,$arr)
     puts 'Please pick a number between 0 and 10 that has not been picked before?'
     move1 = gets.chomp.to_i
   end
