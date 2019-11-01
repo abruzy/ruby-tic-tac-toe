@@ -50,7 +50,7 @@ describe 'Result' do
     end
   end
 
-  context 'when there is no winner' do
+  context 'when there is no winner(a draw)' do
     it 'returns nil' do
       board = %w[X O O
                  O X X
@@ -69,14 +69,13 @@ describe 'GameOver' do
                'O', ' ', 'X']
       expect(GameOver.check(board, player)).to be true
     end
-  end
-    context "after every player's turn" do
-        it 'continues the game if player has not won by returning false' do
-          player = Player.new('Ade', 'X')
-          board = ['X', ' ', 'O',
-                   'O', 'X', 'X',
-                   'O', ' ', 'O']
-          expect(GameOver.check(board, player)).to be false
-        end
+
+    it 'continues the game if player has not won by returning false' do
+      player = Player.new('Ade', 'X')
+      board = ['X', ' ', 'O',
+               'O', 'X', 'X',
+               'O', ' ', 'O']
+      expect(GameOver.check(board, player)).to be false
     end
+  end
 end
