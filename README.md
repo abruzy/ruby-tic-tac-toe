@@ -45,6 +45,13 @@ cd ruby-tic-tac-toe
 ./lib/player.rb
 ```
 
+> RSpec file location
+
+```
+./spec/gametest_spec.rb
+./spec/spec_helper.rb
+```
+
 ## How to Play
 
 The board is divided into a grid of 9 cells
