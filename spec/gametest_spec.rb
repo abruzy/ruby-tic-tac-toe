@@ -84,7 +84,7 @@ describe "Game's valid move" do
   context 'when a player picks the position to place his tool(his move)' do
     turn = Game.new
     arr = [1, 3, 4, 5, 6, 7, 9]
-    it 'returns true if the position is valid (within the acceptable range and not been picked previously)' do
+    it 'returns true if the position is valid (within the acceptable range and not been picked previously)' dohttps://github.com/abruzy/ruby-tic-tac-toe.git
       expect(turn.valid_move(8, arr)).to be true
     end
 
