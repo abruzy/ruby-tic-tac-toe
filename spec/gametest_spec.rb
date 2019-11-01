@@ -82,7 +82,18 @@ end
 
 describe "Game's valid move" do
   context 'when a player picks the position to place his tool(his move)' do
+    turn = Game.new
+    arr = [1, 3, 4, 5, 6, 7, 9]
     it 'returns true if the position is valid (within the acceptable range and not been picked previously)' do
+      expect(turn.valid_move(8, arr)).to be true
+    end
+
+    it 'returns false if the position is not a number between 0 and 10' do
+      expect(turn.valid_move(15, arr)).not_to be true
+    end
+
+    it 'returns false if the position has been picked before' do
+      expect(turn.valid_move(7, arr)).to be false
     end
   end
 end

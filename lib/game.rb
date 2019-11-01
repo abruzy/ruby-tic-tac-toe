@@ -15,5 +15,7 @@ class Game
 
   def valid_move(num, arr)
     return true if num < 10 && num.positive? && !arr.include?(num)
+
+    false
   end
 end
