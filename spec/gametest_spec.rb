@@ -62,12 +62,21 @@ end
 
 describe 'GameOver' do
   context "after every player's turn" do
-    it 'ends the game if the player has won and continues if not' do
+    it 'ends the game if the player has won by returning true' do
       player = Player.new('Ade', 'X')
-      board = %w[X O O
-                 O X O
-                 X X X]
+      board = ['X', ' ', 'O',
+               'O', 'X', 'O',
+               'O', ' ', 'X']
       expect(GameOver.check(board, player)).to be true
     end
   end
+    context "after every player's turn" do
+        it 'continues the game if player has not won by returning false' do
+          player = Player.new('Ade', 'X')
+          board = ['X', ' ', 'O',
+                   'O', 'X', 'X',
+                   'O', ' ', 'O']
+          expect(GameOver.check(board, player)).to be false
+        end
+    end
 end
