@@ -3,12 +3,12 @@
 class Game
   attr_reader :board
   def initialize
-    @board = [0, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   end
 
   def play(position, tool)
     @position = position
     @tool = tool
-    @board[@position] = @tool
+    @board[@position - 1] = @tool
   end
 end

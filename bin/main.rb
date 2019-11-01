@@ -8,9 +8,9 @@ require_relative '../lib/result.rb'
 module Umpire
     def self.display(arr)
         line_width = 50
-     puts "#{arr[1]} | #{arr[2]} | #{arr[3]} ".center line_width
-     puts "#{arr[4]} | #{arr[5]} | #{arr[6]} ".center line_width
-     puts "#{arr[7]} | #{arr[8]} | #{arr[9]} ".center line_width
+     puts "#{arr[0]} | #{arr[1]} | #{arr[2]} ".center line_width
+     puts "#{arr[3]} | #{arr[4]} | #{arr[5]} ".center line_width
+     puts "#{arr[6]} | #{arr[7]} | #{arr[8]} ".center line_width
     end
 end
 
