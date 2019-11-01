@@ -23,3 +23,13 @@ class Result
     nil
   end
 end
+
+class GameOver
+  def self.check(board, player1)
+    return true if Result.check1(board) == player1.tool
+    return true if Result.check2(board) == player1.tool
+    return true if Result.check3(board) == player1.tool
+
+    false
+  end
+end

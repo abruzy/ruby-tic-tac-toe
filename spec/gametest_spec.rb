@@ -60,17 +60,14 @@ describe 'Result' do
   end
 end
 
-describe 'check' do
-    context "after every player's turn" do
-        it 'ends the game if the player has won and continues if not' do 
-        player= Player.new('Ade','X')
-        board = %w[X O O
-                   O X O
-            X X X]
-
-        end
-
-        
+describe 'GameOver' do
+  context "after every player's turn" do
+    it 'ends the game if the player has won and continues if not' do
+      player = Player.new('Ade', 'X')
+      board = %w[X O O
+                 O X O
+                 X X X]
+      expect(GameOver.check(board, player)).to be true
     end
-    
+  end
 end

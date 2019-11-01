@@ -99,7 +99,7 @@ while i<9
   move1=action(player1)
   player_turn.play(move1,$arr[1])
   Umpire.display(player_turn.board)
-  break if check(player_turn.board,player1)
+  break if GameOver.check(player_turn.board,player1)
    
   
     if i==9
