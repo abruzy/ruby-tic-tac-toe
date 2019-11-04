@@ -80,11 +80,16 @@ describe 'GameOver' do
   end
 end
 
-describe "Game's valid move" do
-  context 'when a player picks the position to place his tool(his move)' do
-    turn = Game.new
-    arr = [1, 3, 4, 5, 6, 7, 9]
+describe "Game's methods" do
+  turn = Game.new
+  arr = [1, 3, 4, 5, 6, 7, 9]
+  context 'when a new instance is created' do
+    it 'has access to the variables in the initialize method' do
+      expect(turn.board.class).to eql Array
+    end
+  end
 
+  context 'when a player picks the position to place his tool(his move)' do
     it 'returns true if the position is valid (within the acceptable range and not been picked previously)' do
       expect(turn.valid_move(8, arr)).to be true
     end
@@ -95,6 +100,31 @@ describe "Game's valid move" do
 
     it 'returns false if the position has been picked before' do
       expect(turn.valid_move(7, arr)).to be false
+    end
+  end
+
+  context 'when a player plays a valid move ' do
+    it 'updates the board with the move' do
+      turn.play(7, 'X')
+      expect(turn.board[6]).to eql 'X'
+    end
+  end
+end
+
+describe 'Player' do
+  context 'when a new player is created' do
+    player1 = Player.new('ade', 'x')
+    it 'can get variables in the initialize method' do
+      expect(player1.name).to eql 'ade'
+    end
+
+    it 'can change the name variable using the accessor' do
+      player1.name = 'omo'
+      expect(player1.name).to eql 'omo'
+    end
+
+    it 'can not change the tool variable using the accessor' do
+      expect { player1.tool = 'y' }.to raise_error(NoMethodError)
     end
   end
 end
