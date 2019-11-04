@@ -4,7 +4,6 @@ class Game
   attr_reader :board
   def initialize
     @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-    @arr = []
   end
 
   def play(position, tool)
